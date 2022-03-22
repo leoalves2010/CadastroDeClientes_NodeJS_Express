@@ -11,4 +11,18 @@ async function show(req: Request, res: Response, next: any) {
     res.render('showClient', { client });
 }
 
-export default { index, show };
+async function create(req: Request, res: Response, next: any) {
+    res.render('createClient');
+}
+
+async function createDB(req: Request, res: Response, next: any) {
+    try {
+        await clientsModel.create(req.body);
+        res.redirect('/');
+    } catch (error) {
+        console.log(error);
+        res.status(500).end();
+    }
+}
+
+export default { index, show, create, createDB };

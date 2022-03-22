@@ -1,0 +1,17 @@
+extends app.pug
+block titulo
+    title Cadastrar Novo Cliente
+
+block conteudo
+    div.card.mt-4
+        h5.card-header Cadastrar Novo Cliente
+        div.card-body
+            form(action="/client/create" method="post")
+                div.mb-3
+                    label.form-label(for="inputName") Nome:
+                    input#inputName.form-control(type="text" name="name" required="required")
+                div.mb-3
+                    label.form-label(for="inputEmail") E-mail:
+                    input#inputEmail.form-control(type="email" name="email" required="required")
+                button.btn.btn-success(type="submit") Cadastrar
+                a.btn.btn-dark.ms-2(href="/") Voltar
