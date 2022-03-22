@@ -11,5 +11,21 @@ body
             a.navbar-brand(href="/")
                 img(src="http://megatronti.com/visual/comissao.png" alt="" width="30" height="24")
                 |  Cadastro de Clientes
+    div.container
+        h1 Lista de Clientes
+        table.table.table-striped.table-hover
+            thead
+                tr
+                    th(scope="col") #
+                    th(scope="col") Nome
+                    th(scope="col") E-mail
+                    th(scope="col") Ações
+            tbody
+                each client in clients
+                    tr
+                        th(scope="row") #{client.id}
+                        td #{client.name}
+                        td #{client.email}
+                        td Editar | Excluir
 
 script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous")

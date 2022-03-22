@@ -1,7 +1,9 @@
 import { Request, Response } from "express";
+import clientsModel from "../models/ClientsModel";
 
-function index(req: Request, res: Response, next: any) {
-    res.render('index');
+async function index(req: Request, res: Response, next: any) {
+    const clients = await clientsModel.findAll();
+    res.render('index', { clients });
 }
 
 export default { index };
