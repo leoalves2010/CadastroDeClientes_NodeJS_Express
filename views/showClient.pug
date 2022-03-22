@@ -22,4 +22,5 @@ block conteudo
                     strong Data de Atualização:
                     |  #{client.updatedAt}
 
-                a.btn.btn-dark(href="/") Voltar
+                a.btn.btn-primary(href=`/client/${client.id}/edit`) Editar
+                a.btn.btn-dark.ms-2(href="/") Voltar

@@ -1,0 +1,17 @@
+extends app.pug
+block titulo
+    title Editar Cliente: #{client.name}
+
+block conteudo
+    div.card.mt-4
+        h5.card-header Editar Cliente: #{client.name}
+        div.card-body
+            form(action=`/client/${client.id}/edit?_method=PUT` method="post")
+                div.mb-3
+                    label.form-label(for="inputName") Nome:
+                    input#inputName.form-control(type="text" value=`${client.name}` name="name" required="required")
+                div.mb-3
+                    label.form-label(for="inputEmail") E-mail:
+                    input#inputEmail.form-control(type="email" value=`${client.email}` name="email" required="required")
+                button.btn.btn-success(type="submit") Salvar
+                a.btn.btn-dark.ms-2(href="/") Voltar
