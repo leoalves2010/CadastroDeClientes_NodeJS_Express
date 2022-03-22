@@ -6,4 +6,9 @@ async function index(req: Request, res: Response, next: any) {
     res.render('index', { clients });
 }
 
-export default { index };
+async function show(req: Request, res: Response, next: any) {
+    const client = await clientsModel.findByPk(req.params.id);
+    res.render('showClient', { client });
+}
+
+export default { index, show };

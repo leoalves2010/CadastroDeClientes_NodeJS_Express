@@ -12,21 +12,25 @@ body
                 img(src="http://megatronti.com/visual/comissao.png" alt="" width="30" height="24")
                 |  Cadastro de Clientes
     div.container
-        h1 Lista de Clientes
-        table.table.table-striped.table-hover
-            thead
-                tr
-                    th(scope="col") #
-                    th(scope="col") Nome
-                    th(scope="col") E-mail
-                    th(scope="col") Ações
-            tbody
-                each client in clients
-                    tr
-                        th(scope="row") #{client.id}
-                        td
-                            a.text-decoration-none.link-dark(href=`/client/${client.id}`) #{client.name}
-                        td #{client.email}
-                        td Editar | Excluir
+        div.card.mt-4
+            h5.card-header Detalhes do(a) Cliente: #{client.name}
+            div.card-body
+                p.card-text
+                    strong ID:
+                    |  #{client.id}
+                p.card-text
+                    strong Nome:
+                    |  #{client.name}
+                p.card-text
+                    strong E-mail:
+                    |  #{client.email}
+                p.card-text
+                    strong Data de Criação:
+                    |  #{client.createdAt}
+                p.card-text
+                    strong Data de Atualização:
+                    |  #{client.updatedAt}
+
+                a.btn.btn-secondary(href="/") Voltar
 
 script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous")
