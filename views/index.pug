@@ -4,7 +4,7 @@ block titulo
 
 block conteudo
     h1 Lista de Clientes
-    table.table.table-striped.table-hover
+    table.table.table-striped.table-hover.text-center
         thead
             tr
                 th(scope="col") #
@@ -18,5 +18,11 @@ block conteudo
                     td
                         a.text-decoration-none.link-dark(href=`/client/${client.id}`) #{client.name}
                     td #{client.email}
-                    td Editar | Excluir
+                    td
+                        a.btn.btn-success(href=`/client/${client.id}/edit` title="Editar")
+                            i.fa-solid.fa-pen-to-square
+                        form.d-inline.ms-2(action=`/client/${client.id}?_method=DELETE` method="post")
+                            button.btn.btn-danger(type="submit" title="Deletar" onclick="return confirm('Tem certeza que deseja excluir o registro?');")
+                                i.fa-solid.fa-trash-can.d-inline
+
     a.btn.btn-dark.ms-2(href="/client/create") Cadastrar Novo Cliente

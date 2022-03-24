@@ -51,4 +51,16 @@ async function createDB(req: Request, res: Response, next: any) {
     }
 }
 
-export default { index, show, create, createDB, edit, editDB };
+async function deleteDB(req: Request, res: Response, next: any) {
+    try {
+        await clientsModel.destroy({
+            where: { id: req.params.id }
+        });
+        res.redirect('/');
+    } catch (error) {
+        console.log(error);
+        res.status(500).end();
+    }
+}
+
+export default { index, show, create, createDB, edit, editDB, deleteDB };
